@@ -18,4 +18,13 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function testShowWelcomeMessage()
+    {
+        $this->withoutExceptionHandling();
+        $response = $this->get('/react');
+        sleep(5);
+
+        $response->assertSee('Hello, world Luke Roman!');
+    }
 }
