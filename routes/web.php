@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,4 @@ Route::get('/', function () {
 //     return view('react');
 // });
 
-Route::view('/react', 'react');
+Route::get('/react', ReactController::class);
