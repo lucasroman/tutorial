@@ -4,28 +4,21 @@
         <meta charset="utf-8">
         <title>React JS</title>
 
+    </head>
+    <body>
+        {{-- <div id="in" style="display: none;">{{ $greeting }} </div> --}}
+
+        <div id="root"></div>
+
         {{-- React JS --}}
-        <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 
         {{-- Babel JS --}}
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    </head>
-    <body>
-        
 
-        <div id="root">
+        <script id="reactScript" type="text/babel" src="js/exampleDeleteMe.js" greeting="{{$greeting}}">
 
-        </div>
-
-        <script type="text/babel">
-            const name = 'Luke Roman';
-            const element = <h1>Hello, world {name}!</h1>;
-
-            ReactDOM.render(
-                element,
-                document.getElementById('root')
-            );
         </script>
     </body>
 </html>
