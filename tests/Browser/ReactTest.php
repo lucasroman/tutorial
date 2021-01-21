@@ -14,7 +14,7 @@ class ReactTest extends DuskTestCase
      *
      * @return void
      */
-    public function testCanSeeABasicComponent()
+    public function testCanSeeComponentHelloWorld()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/react')
@@ -27,10 +27,12 @@ class ReactTest extends DuskTestCase
     // 1. Check send data to react component
     public function testReactComponentCanReceiveData()
     {
-        $this->markTestIncomplete('Set up database before run this test');
+        // $this->markTestIncomplete('Set up database before run this test');
 
         $this->browse(function (Browser $browser) {
-        //     $browser->visit('/react')->
+            $browser->visit('/react')
+                    ->pause(2000)
+                    ->assertSee('hola');
         });
     }
     // 2. Check react component send data to back-end
