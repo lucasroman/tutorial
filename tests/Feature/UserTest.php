@@ -19,4 +19,22 @@ class UserTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function testCreateUserHaveAUrl()
+    {
+        $response = $this->get('/users/create');
+
+        $response->assertStatus(200);
+    }
+
+    public function testAUserCanBeSavedOnDatabase()
+    {
+        $response = $this->post('/users', [
+            'firstName' => 'John',
+            'lastName' => 'Doe',
+            'email' => 'jdoe@example.com',
+        ]);
+
+        $this->assertDatabaseCount('users', 1);
+    }
 }
