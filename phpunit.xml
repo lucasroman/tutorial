@@ -7,13 +7,13 @@
     <testsuites>
         <!-- <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
-        </testsuite>
+        </testsuite> -->
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
-        </testsuite> -->
-        <testsuite name="Dusk">
-            <directory suffix="Test.php">./tests/Browser</directory>
         </testsuite>
+        <!-- <testsuite name="Dusk">
+            <directory suffix="Test.php">./tests/Browser</directory>
+        </testsuite> -->
     </testsuites>
     <coverage processUncoveredFiles="true">
         <include>
