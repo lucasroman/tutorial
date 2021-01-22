@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/react', function () {
-//     return view('react');
-// });
-
 Route::get('/react', ReactController::class);
+
+Route::get('/users/create', function () {
+    return 'Route to user create done!';
+});
