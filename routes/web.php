@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ReactController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +22,7 @@ Route::get('/', function () {
 Route::get('/react', ReactController::class);
 
 Route::get('/users/create', function () {
-    return 'Route to user create done!';
+    return 'Route for create user here.';
 });
+
+Route::post('/users', [UserController::class, 'store']);
