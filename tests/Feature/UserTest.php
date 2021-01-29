@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      *
@@ -29,6 +30,8 @@ class UserTest extends TestCase
 
     public function testAUserCanBeSavedOnDatabase()
     {
+        $this->withoutExceptionHandling();
+
         $response = $this->post('/users', [
             'firstName' => 'John',
             'lastName' => 'Doe',
