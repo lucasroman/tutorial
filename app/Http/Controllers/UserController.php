@@ -2,9 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    //
+    public function store(Request $request)
+    {
+        $user = new User();
+
+        $user->first_name = $request->firstName;
+        $user->last_Name = $request->lastName;
+        $user->email = $request->email;
+
+        $user->save();
+    }
 }
