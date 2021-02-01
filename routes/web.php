@@ -21,8 +21,6 @@ Route::get('/', function () {
 
 Route::get('/react', ReactController::class);
 
-Route::get('/users/create', function () {
-    return 'Route for create user here.';
-});
+Route::view('/users/create', 'users.create');
 
 Route::post('/users', [UserController::class, 'store']);
