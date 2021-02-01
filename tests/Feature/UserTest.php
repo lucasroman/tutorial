@@ -9,18 +9,8 @@ use Tests\TestCase;
 class UserTest extends TestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $response = $this->get('/');
 
-        $response->assertStatus(200);
-    }
-
+    // Create URL must exist
     public function testCreateUserHaveAUrl()
     {
         $response = $this->get('/users/create');
@@ -28,10 +18,17 @@ class UserTest extends TestCase
         $response->assertStatus(200);
     }
 
+    // Create VIEW must exist
+    public function testCreateUserViewShouldExist()
+    {
+        $response = $this->get('/users/create');
+
+        $response->assertViewIs('users.create');
+    }
+
+    // Create URL can save new users on database
     public function testAUserCanBeSavedOnDatabase()
     {
-        $this->withoutExceptionHandling();
-
         $response = $this->post('/users', [
             'firstName' => 'John',
             'lastName' => 'Doe',
