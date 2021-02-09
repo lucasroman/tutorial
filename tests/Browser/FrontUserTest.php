@@ -6,8 +6,9 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
-class FrontUserTest.php extends DuskTestCase
+class FrontUserTest extends DuskTestCase
 {
+    use DatabaseMigrations;
     /**
      * A Dusk test example.
      *
