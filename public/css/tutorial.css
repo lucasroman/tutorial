@@ -1,0 +1,19 @@
+body {
+    padding: 1em;
+}
+
+footer {
+    padding: 1em;
+    margin-top: 1em;
+    background-color: beige;
+ }
+
+ .blink_me {
+   animation: blinker 1s linear infinite;
+ }
+
+ @keyframes blinker {
+   50% {
+     opacity: 0;
+   }
+ }
