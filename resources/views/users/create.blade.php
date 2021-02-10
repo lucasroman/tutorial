@@ -1,18 +1,17 @@
-@extends('layouts/user')
+@extends('layouts/userLayout')
 
 @section('content')
-<form action="#">
-    <label>First name: </label><br>
-        <input type="text" name="firstName"><br>
 
-    <label>Last name: </label><br>
-        <input type="text" name="lastName"><br>
+    <div id="userForm"></div>
 
-    <input type="submit" name="create">
-</form>
 @env('local')
     <div>
-        You are on <span class="blink_me">local</span> environment.
+        You are on
+        <b><span class="blink_me">{{env('APP_ENV')}}</span></b>
+        environment.
     </div>
 @endenv
+
+<script defer type="text/babel" src="../js/userForm.js"></script>
+
 @endsection
