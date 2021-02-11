@@ -10,19 +10,15 @@ use Tests\DuskTestCase;
 class FrontUserTest extends DuskTestCase
 {
     use DatabaseMigrations;
-    /**
-     * A Dusk test example.
-     *
-     * @return void
-     */
 
-    // Check it can log with valid user
-    public function testShouldLoginWithValidUser()
+    // Create view should show a form and redirect to same page after submit
+    public function testShouldRedirectToAfterCreateUser()
     {
         $user = User::factory()->make();
 
         $this->browse(function (Browser $browser) use ($user) {
             $browser->visit('/users/create')
+                    ->pause(2000)
                     ->type('firstName', $user->fistName)
                     ->type('lastName', $user->lastName)
                     ->press('create')
