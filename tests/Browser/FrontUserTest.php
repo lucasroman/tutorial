@@ -18,11 +18,10 @@ class FrontUserTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($user) {
             $browser->visit('/users/create')
-                    ->pause(2000)
-                    ->type('firstName', $user->fistName)
+                    ->type('firstName', $user->firstName)
                     ->type('lastName', $user->lastName)
                     ->press('create')
-                    ->assertPathIs('/users/create');
+                    ->assertDialogOpened("First name: {$user->firstName}\nLast name: {$user->lastName}");
         });
     }
 }
