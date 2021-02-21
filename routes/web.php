@@ -23,4 +23,6 @@ Route::get('/react', ReactController::class);
 
 Route::view('/users/create', 'users.create');
 
+Route::get('/users', [UserController::class, 'index']);
+
 Route::post('/users', [UserController::class, 'store']);
