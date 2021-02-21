@@ -17,14 +17,13 @@ class UserForm extends React.Component {
     }
 
     handleSubmit(event) {
-        alert("First name: " + this.state.firstName +
-            "\nLast name: " + this.state.lastName);
+
         event.preventDefault();
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form action="/users" method="post">
                 <label>First name: </label><br />
                 <input type="text" name="firstName" value={this.state.firstName}
                     onChange={this.handleChangeFirstName} /><br />
@@ -32,6 +31,9 @@ class UserForm extends React.Component {
                 <label>Last name: </label><br />
                 <input type="text" name="lastName" value={this.state.lastName}
                     onChange={this.handleChangeLastName}/><br />
+
+                <label>Email: </label><br />
+                <input type="email" name="email" /><br />
 
                 <input type="submit" name="create" />
             </form>
