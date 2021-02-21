@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        return view('users.index');
+    }
+
     public function store(Request $request)
     {
         $user = new User();
@@ -16,5 +21,7 @@ class UserController extends Controller
         $user->email = $request->email;
 
         $user->save();
+
+        return redirect('/users');
     }
 }
