@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function create()
+    {
+        return view('users.create');
+    }
+
+
     public function index()
     {
         return view('users.index');
@@ -14,6 +20,12 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required', 
+        ]);
+
         $user = new User();
 
         $user->first_name = $request->firstName;
