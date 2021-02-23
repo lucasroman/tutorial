@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/react', ReactController::class);
 
-Route::view('/users/create', 'users.create');
+Route::get('/users/create', [UserController::class, 'create']);
 
 Route::get('/users', [UserController::class, 'index']);
 
