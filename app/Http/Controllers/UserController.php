@@ -21,15 +21,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required', 
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => 'required',
         ]);
 
         $user = new User();
 
         $user->first_name = $request->firstName;
-        $user->last_Name = $request->lastName;
+        $user->last_name = $request->lastName;
         $user->email = $request->email;
 
         $user->save();
