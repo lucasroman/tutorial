@@ -41,14 +41,12 @@ class UserTest extends TestCase
     // Invalid user data should not be saved
     public function testInvalidUserDataShouldNotBeSabed()
     {
-        $this->withoutExceptionHandling();
-
         $response = $this->post('/users', [
             'firstname' => '',
             'lastname' => 'A valid last name',
             'email' => 'avalidemail@example.com',
         ]);
 
-        $this->assertDatabaseCount('users', 1);
+        $this->assertDatabaseCount('users', 0);
     }
 }
