@@ -1,32 +1,25 @@
 class UserForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {firstName: '', lastName: ''};
+        this.state = {lastName: ''};
 
-        this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
+        // this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
         this.handleChangeLastName = this.handleChangeLastName.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChangeFirstName(event) {
-        this.setState({firstName: event.target.value});
-    }
+    // handleChangeFirstName(event) {
+    //     this.setState({firstName: event.target.value});
+    // }
 
     handleChangeLastName(event) {
         this.setState({lastName: event.target.value});
-    }
-
-    handleSubmit(event) {
-
-        event.preventDefault();
     }
 
     render() {
         return (
             <form action="/users" method="post">
                 <label>First name: </label><br />
-                <input type="text" name="firstName" value={this.state.firstName}
-                    onChange={this.handleChangeFirstName} /><br />
+                <input type="text" name="firstName"/><br />
 
                 <label>Last name: </label><br />
                 <input type="text" name="lastName" value={this.state.lastName}
