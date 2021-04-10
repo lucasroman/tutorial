@@ -8,15 +8,15 @@ use Tests\TestCase;
 
 class todoListTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    // Must exist todo list route and view
+    public function testItCanSeeToDoListPage()
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $response = $this->get('/todo');
+        // Check route exist
+        $response->assertOk();
+        // Check view exist
+        $response->assertViewIs('todo.todoList');
     }
+
+    // 2. Added item should be seen after saving.
 }
