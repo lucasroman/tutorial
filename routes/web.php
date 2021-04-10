@@ -26,3 +26,5 @@ Route::get('/users/create', [UserController::class, 'create']);
 Route::get('/users', [UserController::class, 'index']);
 
 Route::post('/users', [UserController::class, 'store']);
+
+Route::view('/todo', 'todo/todoList')->name('todoList');
