@@ -23,7 +23,6 @@
     </div>
 @endenv
 
-{{-- <script defer type="text/babel" src="../js/userForm.js"></script> --}}
 <script src="{{ asset('js/app.js') }}" defer></script>
 
 @endsection
