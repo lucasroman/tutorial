@@ -1991,25 +1991,107 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var TodoApp = /*#__PURE__*/function (_React$Component) {
   _inherits(TodoApp, _React$Component);
 
   var _super = _createSuper(TodoApp);
 
-  function TodoApp() {
+  function TodoApp(props) {
+    var _this;
+
     _classCallCheck(this, TodoApp);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      items: [],
+      text: ''
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(TodoApp, [{
     key: "render",
     value: function render() {
-      return 'Text from TodoApp component';
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+          children: "TODO"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TodoList, {
+          items: this.state.items
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+          onSubmit: this.handleSubmit,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            htmlFor: "new-todo",
+            children: "What need to be done?"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            id: "new-todo",
+            onChange: this.handleChange,
+            value: this.state.text
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+            children: ["Add #", this.state.items.length + 1]
+          })]
+        })]
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      this.setState({
+        text: e.target.value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+
+      if (this.state.text.length === 0) {
+        return;
+      }
+
+      var newItem = {
+        text: this.state.text,
+        id: Date.now()
+      };
+      this.setState(function (state) {
+        return {
+          items: state.items.concat(newItem),
+          text: ''
+        };
+      });
     }
   }]);
 
   return TodoApp;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+var TodoList = /*#__PURE__*/function (_React$Component2) {
+  _inherits(TodoList, _React$Component2);
+
+  var _super2 = _createSuper(TodoList);
+
+  function TodoList() {
+    _classCallCheck(this, TodoList);
+
+    return _super2.apply(this, arguments);
+  }
+
+  _createClass(TodoList, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+        children: this.props.items.map(function (item) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            children: item.text
+          }, item.id);
+        })
+      });
+    }
+  }]);
+
+  return TodoList;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 if (document.getElementById('todoList')) {
