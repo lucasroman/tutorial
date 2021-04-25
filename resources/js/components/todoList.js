@@ -22,6 +22,7 @@ class TodoApp extends React.Component {
                         id="new-todo"
                         onChange={this.handleChange}
                         value={this.state.text}
+                        name="input-field"
                     />
                     <button>
                         Add #{this.state.items.length + 1}

@@ -2028,7 +2028,8 @@ var TodoApp = /*#__PURE__*/function (_React$Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             id: "new-todo",
             onChange: this.handleChange,
-            value: this.state.text
+            value: this.state.text,
+            name: "input-field"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
             children: ["Add #", this.state.items.length + 1]
           })]
