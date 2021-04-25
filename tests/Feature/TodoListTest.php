@@ -17,16 +17,4 @@ class todoListTest extends TestCase
         // Check view exist
         $response->assertViewIs('todo.todoList');
     }
-
-    // 2. Added item should be seen after saving.
-    public function testUserCanSendItem()
-    {
-        $response = $this->post('/todo', [
-            'item' => 'A new item',
-        ]);
-
-        $response = $this->get('/todo');
-
-        $response->assertSee('A new item');
-    }
 }
