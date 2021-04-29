@@ -39,10 +39,10 @@ class TodoListTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/todo')
-                    ->assertMissing('li')
-                    ->type('input-field', '')
-                    ->press('Add')
-                    ->assertMissing('li');
+                    ->assertMissing('li') // There is no item
+                    ->type('input-field', '') // Input empty item
+                    ->press('Add') // Try to save empty item
+                    ->assertMissing('li'); // Empty item wasn't saved
         });
     }
 }
