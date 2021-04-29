@@ -8,6 +8,7 @@ use Tests\DuskTestCase;
 
 class TodoListTest extends DuskTestCase
 {
+    use DatabaseMigrations;
     /**
      * A Dusk test example.
      *
@@ -31,6 +32,17 @@ class TodoListTest extends DuskTestCase
                     ->press('Add')
                     ->assertSee('A new item'); // Item exist now
         });
+    }
 
+    // Can't save empty item
+    public function testCantSaveEmptyItem()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/todo')
+                    ->assertMissing('li')
+                    ->type('input-field', '')
+                    ->press('Add')
+                    ->assertMissing('li');
+        });
     }
 }
