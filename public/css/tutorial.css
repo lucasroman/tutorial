@@ -9,7 +9,14 @@ footer {
  }
 
  .blink_me {
-   animation: blinker 1s linear infinite;
+   -webkit-animation: blinker 1s linear infinite;
+           animation: blinker 1s linear infinite;
+ }
+
+ @-webkit-keyframes blinker {
+   50% {
+     opacity: 0;
+   }
  }
 
  @keyframes blinker {
@@ -17,3 +24,9 @@ footer {
      opacity: 0;
    }
  }
+
+.anchor-without-style {
+    text-decoration: none;
+    color: inherit;
+}
+
