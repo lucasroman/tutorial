@@ -3,10 +3,9 @@ body {
 }
 
 footer {
-    padding: 1em;
-    margin-top: 1em;
-    background-color: beige;
- }
+     color: white;
+     padding-left:inherit;
+}
 
  .blink_me {
    -webkit-animation: blinker 1s linear infinite;
