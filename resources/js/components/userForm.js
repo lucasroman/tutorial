@@ -21,17 +21,33 @@ class UserForm extends React.Component {
     render() {
         return (
             <form action="/users" method="post">
-                <label>First name: </label><br />
-                <input type="text" name="firstName"/><br />
+                <div class="row mb-3">
+                    <div class="form-group col">
+                        <label for="firstName" class="form-label">
+                            First name
+                        </label>
+                        <input type="text" class="form-control" name="firstName"
+                            id="firstName"/>
+                    </div>
 
-                <label>Last name: </label><br />
-                <input type="text" name="lastName" value={this.state.lastName}
-                    onChange={this.handleChangeLastName}/><br />
+                    <div class="form-group col">
+                        <label for="lastName" class="form-label">
+                            Last name
+                        </label>
+                        <input type="text" class="form-control" name="lastName"
+                            value={this.state.lastName}
+                            onChange={this.handleChangeLastName} id="lastName"/>
+                    </div>
+                </div>
 
-                <label>Email: </label><br />
-                <input type="email" name="email" /><br />
+                <div class="form-group mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email"
+                        id="email"/>
+                </div>
 
-                <input type="submit" name="create" />
+                <input type="submit" value="Create User" class="btn btn-primary
+                    mb-3" />
             </form>
         );
     }
