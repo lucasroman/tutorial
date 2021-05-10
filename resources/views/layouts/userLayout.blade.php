@@ -20,14 +20,8 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('welcome') }}">
                     <i class="fab fa-react fa-stack-1x fa-inverse fa-fw"
-                        style="color: #61dafb;
-                            font-size: 1.5em;
-                            text-align: inherit;
-                            padding-left: 2em;">
-                    </i>
-                    <h3 style="color:white;
-                            padding-left: 4em;
-                            padding-top: 0.1em;">
+                        id="react-icon"></i>
+                    <h3 id="navbar-title">
                         React JS examples
                     </h3>
                 </a>
