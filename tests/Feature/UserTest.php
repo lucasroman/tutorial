@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -9,6 +10,22 @@ use Tests\TestCase;
 class UserTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        // User instantiated but not saved in the database
+        $this->user = User::make([
+            'first_name' => 'Jhon',
+            'last_name' => 'Doe',
+            'email' => 'jdoe@example.com',
+        ]);
+    }
+
+    // ------------------------------------------------------------------------
+    // User create tests
+    // ------------------------------------------------------------------------
 
     // Create URL must exist
     public function testCreateUserHaveAUrl()
@@ -81,5 +98,36 @@ class UserTest extends TestCase
         $response->assertSessionHasErrors(['email']);
         // The new user has not been saved on database
         $this->assertDatabaseCount('users', 0);
+    }
+
+    // ------------------------------------------------------------------------
+    // User index tests
+    // ------------------------------------------------------------------------
+
+    // Users list route must exist
+    public function testUsersListUrlMustExist()
+    {
+        $response = $this->get('/users');
+
+        $response->assertStatus(200);
+    }
+
+    // Users list view must exist
+    public function testShouldCanSeeAllUsersFromDatabase()
+    {
+        // There are no users in the database
+        $this->assertDatabaseCount('users', 0);
+
+        // Save a new user
+        $user = User::factory()->create();
+
+        // Check that thew new user is in the database
+        $this->assertDatabaseCount('users', 1);
+
+        $response = $this->get('/users');
+
+        // dump($user->getAttributes());
+        // Check that user is showing in 'users' view
+        $response->assertSee($user->first_name);
     }
 }
