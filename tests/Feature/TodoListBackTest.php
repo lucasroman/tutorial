@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class todoListTest extends TestCase
+class TodoListBackTest extends TestCase
 {
     // Must exist todo list route and view
     public function testItCanSeeToDoListPage()
