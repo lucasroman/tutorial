@@ -14,8 +14,8 @@
                         @include('icons.welcome', ['icon' => 'user', ])
                     </div>
                     <div>
-                    <h2>Users management</h2>
-                    <p>Use a React form to create a new user.</p>
+                        <h2>Users management</h2>
+                        <p>Use a React form to create a new user.</p>
                     </div>
                 </div>
             </a>
@@ -43,6 +43,7 @@
                 </div>
             </a>
         </div>
+        <a  href="{{ route('users.index') }}">Users list (temporal)</a>
     </div>
 
 @endsection
