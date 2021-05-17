@@ -113,21 +113,26 @@ class UserTest extends TestCase
     }
 
     // Users list view must exist
-    public function testShouldCanSeeAllUsersFromDatabase()
+    public function testUsersUrlShowAllUsersInDatabase()
     {
         // There are no users in the database
         $this->assertDatabaseCount('users', 0);
 
-        // Save a new user
-        $user = User::factory()->create();
+        // Save a new users
+        $users = User::factory()->count(2)->create();
 
-        // Check that thew new user is in the database
-        $this->assertDatabaseCount('users', 1);
+        // Check that the new users are in the database
+        $this->assertDatabaseCount('users', 2);
 
         $response = $this->get('/users');
+        // First user is visible in '/users' url
+        $response->assertSee($users[0]->first_name);
+        $response->assertSee($users[0]->last_name);
+        $response->assertSee($users[0]->email);
 
-        // dump($user->getAttributes());
-        // Check that user is showing in 'users' view
-        $response->assertSee($user->first_name);
+        // Second user is visible in '/users' url
+        $response->assertSee($users[1]->first_name);
+        $response->assertSee($users[1]->last_name);
+        $response->assertSee($users[1]->email);
     }
 }
