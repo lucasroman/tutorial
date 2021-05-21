@@ -104,7 +104,7 @@ class UserTest extends TestCase
     // User index tests
     // ------------------------------------------------------------------------
 
-    // Users list route must exist
+    // Users list route must exist (index view and action)
     public function testUsersListUrlMustExist()
     {
         $response = $this->get('/users');
