@@ -1,6 +1,7 @@
 @extends('layouts/userLayout')
 
 @section('content')
+    <div id="userList"></div>
 
     <table class="table">
         <tr>
