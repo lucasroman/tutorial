@@ -15,3 +15,4 @@ require('./bootstrap');
 require('./components/Example');
 require('./components/userForm');
 require('./components/todoList');
+require('./components/userList');
