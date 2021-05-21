@@ -18,11 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/users/create', [UserController::class, 'create'])
-    ->name('users.create');
-
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
-
-Route::post('/users', [UserController::class, 'store']);
+Route::resource('users', UserController::class)->only([
+    'index', 'create', 'store'
+]);
 
 Route::view('/todo', 'todo/todoList')->name('todoList');
