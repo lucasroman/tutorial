@@ -16,14 +16,31 @@
         <title>Tutorial React JS @yield('title', '(Untitled)')</title>
     </head>
     <body>
+        <a class="navbar-brand" href="{{ route('welcome') }}">
         <nav class="navbar navbar-dark bg-dark mb-7 fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('welcome') }}">
-                    <i class="fab fa-react fa-stack-1x fa-inverse fa-fw"
-                        id="react-icon"></i>
-                    <h3 id="navbar-title">
-                        React JS examples
-                    </h3>
+                <div class="row">
+                    <div class="col">
+                        <i class="fab fa-react fa-2x fa-inverse"
+                        style="color:#61dafb;vertical-align: text-top;"></i>
+                    </div>
+                    <div class="col">
+                        <h2 style="color:#61dafb;">
+                            React JS examples
+                        </h2>
+                    </div>
+                </div>
+                {{-- <div class="row">
+                    <div class="col">
+                        <i class="fab fa-react fa-3x fa-inverse"></i>
+                    </div>
+                    <div class="col">
+                        <h3 id="navbar-title">
+                            React JS examples
+                        </h3>
+                    </div>
+                </div> --}}
+
                 </a>
             </div>
         </nav>
