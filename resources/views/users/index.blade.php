@@ -1,9 +1,9 @@
 @extends('layouts/userLayout')
 
 @section('content')
-    <div id="userList"></div>
+    <div id="userList" data-users="{{ $users }}"></div>
 
-    <table class="table">
+    {{-- <table class="table">
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
@@ -16,5 +16,6 @@
                 <td>{{ $user->email }}</td>
             </tr>
         @endforeach
-    </table>
+    </table> --}}
+
 @endsection
