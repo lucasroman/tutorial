@@ -9,7 +9,7 @@
 
         {{-- Bootstrap 5.0.1 style --}}
         <link rel="stylesheet" href="{{ asset('css/app.css')}}">
-        
+
         {{-- Own style --}}
         <link rel="stylesheet" href="{{ asset('css/tutorial.css') }}">
 
@@ -34,7 +34,6 @@
             </div>
         </nav>
         </a>
-
         <div class="container mt-5 py-5">
             @yield('content')
         </div>
@@ -45,6 +44,6 @@
             </div>
         </footer>
 
-        <script src='{{ asset('js/app.js') }}'></script>
+        <script src='{{ asset('js/app.js') }}' defer></script>
     </body>
 </html>
