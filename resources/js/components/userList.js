@@ -10,13 +10,11 @@ class UserList extends React.Component {
     render() {
         return (
             <div>
-                <h3>Here users table</h3>
-
-                <table className="table">
+                <table className="table table-dark table-responsive-sm">
                     <tr>
-                        <th>Last Name</th>
-                        <th>First Name</th>
-                        <th>Email</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Email</th>
                     </tr>
 
                     <UserData users={users} />
