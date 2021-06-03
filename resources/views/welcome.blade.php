@@ -38,7 +38,10 @@
                     </div>
                     <div>
                         <h2>Feature three</h2>
-                        <p>asdfasdf</p>
+                        <div class="text-center text-danger">
+                            <i class="far fa-construction fa-3x blink_me"></i>
+                            <p>Under construction</p>
+                        </div>
                     </div>
                 </div>
             </a>
