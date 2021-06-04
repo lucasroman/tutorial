@@ -12,21 +12,29 @@ class TodoApp extends React.Component {
     render() {
         return (
             <div>
-                <h3>TODO</h3>
+                <h2>Tasks TODO</h2>
                 <TodoList items={this.state.items} />
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="new-todo">
-                        What need to be done?
-                    </label>
-                    <input
-                        id="new-todo"
-                        onChange={this.handleChange}
-                        value={this.state.text}
-                        name="input-field"
-                    />
-                    <button>
-                        Add #{this.state.items.length + 1}
-                    </button>
+                    <div className="form-group row align-items-center">
+                        <div className="col-md-auto mt-3">
+                            <label htmlFor="new-todo">
+                                <h4>What need to be done?</h4>
+                            </label>
+                        </div>
+                        <div className="col-md-auto">
+                            <input
+                                id="new-todo"
+                                onChange={this.handleChange}
+                                value={this.state.text}
+                                name="input-field"
+                            />
+                        </div>
+                        <div className="col-md-auto">
+                            <button className="btn btn-dark">
+                                Add #{this.state.items.length + 1}
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         );
@@ -55,9 +63,9 @@ class TodoApp extends React.Component {
 class TodoList extends React.Component {
     render() {
         return (
-            <ul>
+            <ul className="list-group my-3">
                 {this.props.items.map(item => (
-                    <li key={item.id}>{item.text}</li>
+                    <li className="list-group-item" key={item.id}>{item.text}</li>
                 ))}
             </ul>
         );
