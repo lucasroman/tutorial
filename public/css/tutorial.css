@@ -1,0 +1,31 @@
+body {
+    padding: 1em;
+}
+
+footer {
+     color: white;
+     padding-left:inherit;
+}
+
+ .blink_me {
+   -webkit-animation: blinker 1s linear infinite;
+           animation: blinker 1s linear infinite;
+ }
+
+ @-webkit-keyframes blinker {
+   50% {
+     opacity: 0;
+   }
+ }
+
+ @keyframes blinker {
+   50% {
+     opacity: 0;
+   }
+ }
+
+.anchor-without-style {
+    text-decoration: none;
+    color: inherit;
+}
+
