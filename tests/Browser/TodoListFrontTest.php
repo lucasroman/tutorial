@@ -14,13 +14,6 @@ class TodoListFrontTest extends DuskTestCase
      *
      * @return void
      */
-    public function testExample()
-    {
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-                    ->assertSee('Laravel');
-        });
-    }
 
     // Add new item without reloading
     public function testUserCanAddANewItem()
