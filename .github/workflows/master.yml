@@ -20,4 +20,4 @@ jobs:
       - name: Check Composer version
         run: composer -V
       - name: Run tests
-        run: vendor/bin/phpunit
+        run: vendor\bin\phpunit
