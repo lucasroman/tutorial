@@ -19,5 +19,8 @@ jobs:
          php -r "unlink('composer-setup.php');"
       - name: Check Composer version
         run: composer -V
+      - name: Install Phpunit
+        run: composer require --dev phpunit/phpunit ^9
+        run: ./vendor/bin/phpunit --version
       - name: Run tests
         run: ./vendor/bin/phpunit tests
