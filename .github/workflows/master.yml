@@ -19,3 +19,9 @@ jobs:
          php -r "unlink('composer-setup.php');"
       - name: Check Composer version
         run: composer -V
+
+  test:
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run tests
+        run: vendor/bin/phpunit
