@@ -2,7 +2,7 @@ name: React Examples CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ $default-branch, real-time_text_component ]
   pull_request:
     branches: [ $default-branch ]
 
