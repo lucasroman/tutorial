@@ -1,4 +1,4 @@
-name: React Examples CI
+name: React Examples Workflow
 
 on:
   push:
@@ -7,9 +7,9 @@ on:
     branches: [ $default-branch ]
 
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v2
       
@@ -28,5 +28,11 @@ jobs:
         run: composer -V
       - name: Install Phpunit
         run: composer require --dev phpunit/phpunit ^9
+      - name: Connect to mySQL
+        env: 
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_DATABASE: tutorial
+          DB_USERNAME: root
       - name: Run tests
         run: ./vendor/bin/phpunit tests
