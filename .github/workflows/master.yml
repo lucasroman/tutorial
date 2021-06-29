@@ -30,8 +30,11 @@ jobs:
           DB_DATABASE: tutorial
           DB_USERNAME: root
           DB_PASSWORD: 
-      - name: Run server
-        run: php artisan serve
+      - name: Setup database
+      - uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: '8.0'
+      - run: mysql -uroot -h127.0.0.1 -e 'SELECT version()'
       - name: Run migrations
         run: php artisan migrate
       - name: Run tests
