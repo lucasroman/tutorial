@@ -31,8 +31,7 @@ jobs:
           DB_USERNAME: root
           DB_PASSWORD:
       - name: Install mySQL
-        run: sudo apt-get update
-        run: sudo apt-get install mysql-shell
+        run: sudo apt-get update && sudo apt-get install mysql-shell
       - name: Run migrations
         run: php artisan migrate
       - name: Run tests
