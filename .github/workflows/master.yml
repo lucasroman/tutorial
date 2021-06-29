@@ -30,6 +30,8 @@ jobs:
           DB_DATABASE: tutorial
           DB_USERNAME: root
           DB_PASSWORD: 
+      - name: Run server
+        run: php artisan serve
       - name: Run migrations
         run: php artisan migrate
       - name: Run tests
