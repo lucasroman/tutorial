@@ -13,21 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Install depencencies
+      - name: Install Composer depencencies
         run: composer install
         
       - name: Make env file
-        services:
-            mysql:
-              image: mysql:5.7
-              env:
-                MYSQL_DATABASE: database_ci
-                MYSQL_USER: user
-                MYSQL_PASSWORD: secret
-                MYSQL_ROOT_PASSWORD: secretroot
-              ports:
-                - 33306:3306
-              options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
         run: cp .env.example .env
         env:
           DB_CONNECTION: mysql
