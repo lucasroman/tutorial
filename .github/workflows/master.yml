@@ -12,6 +12,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Install depencencies
+        run: composer install
 
       - name: Make env file
         run: cp .env.example .env
