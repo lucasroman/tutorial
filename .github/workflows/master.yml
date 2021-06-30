@@ -25,6 +25,8 @@ jobs:
           DB_DATABASE: tutorial
           DB_USERNAME: root
           DB_PASSWORD:
+      - name: Install MySQL server
+        run: sudo apt-get install mysql-server
       - name: MySQL login
         run: mysql -u -p
       #- name: Run migrations
