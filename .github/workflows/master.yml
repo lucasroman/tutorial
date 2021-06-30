@@ -26,7 +26,7 @@ jobs:
           DB_USERNAME: root
           DB_PASSWORD:
       - name: MySQL rename file to connection
-        run: mv /etc/mysql/my.cnf /etc/mysql/otherName.cnf
+        run: sudo mv /etc/mysql/my.cnf /etc/mysql/otherName.cnf
       - name: MySQL login
         run: mysql -u -p
       #- name: Run migrations
