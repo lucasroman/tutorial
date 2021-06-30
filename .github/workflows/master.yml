@@ -25,7 +25,8 @@ jobs:
           DB_DATABASE: tutorial
           DB_USERNAME: root
           DB_PASSWORD:
-    
-      - name: Run migrations
-        run: php artisan migrate
+      - name: MySQL check version
+        run: mysql -V
+      #- name: Run migrations
+      #  run: php artisan migrate
 
