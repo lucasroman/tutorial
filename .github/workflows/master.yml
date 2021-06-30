@@ -26,7 +26,7 @@ jobs:
           DB_USERNAME: root
           DB_PASSWORD:
       - name: MySQL rename file to connection
-        run: mysql -h 127.0.0.1 -P 3306 -u root -p tutorial
+        run: mysql -h 127.0.0.1 -P 3306 -u root tutorial
       - name: MySQL login
         run: mysql -u -p
       #- name: Run migrations
