@@ -27,5 +27,5 @@ jobs:
           DB_PASSWORD:
 
       - name: Run migrations
-        run: php artisan migrate:install
+        run: php artisan migrate
 
