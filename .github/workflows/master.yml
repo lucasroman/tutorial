@@ -20,13 +20,13 @@ jobs:
         run: cp .env.example .env
         env:
           DB_CONNECTION: mysql
-          DB_HOST: mysql
+          DB_HOST: 127.0.0.1
           DB_PORT: 3306
           DB_DATABASE: tutorial
           DB_USERNAME: root
           DB_PASSWORD:
       - name: MySQL rename file to connection
-        run: sudo mv /etc/mysql/my.cnf /etc/mysql/otherName.cnf
+        run: mysql -h 127.0.0.1 -P 3306 -u root -p tutorial
       - name: MySQL login
         run: mysql -u -p
       #- name: Run migrations
