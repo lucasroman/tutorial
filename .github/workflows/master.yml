@@ -27,6 +27,7 @@ jobs:
           DB_PASSWORD:
       - name: MySQL check server version
         run: mysql -V
+      - run: cat /etc/mysql/my.cnf
       - name: MySQL rename file to connection
         run: mysql -h 127.0.0.1 -P 3306 -u root tutorial
 
