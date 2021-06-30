@@ -13,37 +13,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Make env file
+          run: cp .env.example .env
+          env:
+            DB_HOST: 127.0.0.1
+            DB_PORT: 3306
+            DB_DATABASE: tutorial
+            DB_USERNAME: root
+            DB_PASSWORD:
+
+      - name: Run migrations
+        run: php artisan migrate  
+
       - name: Install Composer
         run: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
          php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
          php composer-setup.php
          php -r "unlink('composer-setup.php');"
-      - name: Check Composer version
-        run: composer -V
+    
       - name: Install Phpunit
         run: composer require --dev phpunit/phpunit ^9
-      - name: Connect to mySQL
-        run: cp .env.example .env
-        env:
-          DB_HOST: 127.0.0.1
-          DB_PORT: 3306
-          DB_DATABASE: tutorial
-          DB_USERNAME: root
-          DB_PASSWORD:
-      - name: Set up MySQL
-        uses: mirromutth/mysql-action@v1.1
-        with:
-          host port: 3800 # Optional, default value is 3306. The port of host
-          container port: 3307 # Optional, default value is 3306. The port of container
-          character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
-          collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
-          mysql version: '8.0' # Optional, default value is "latest". The version of the MySQL
-          mysql database: 'some_test' # Optional, default value is "test". The specified database which will be create
-          mysql root password: ${{ secrets.RootPassword }} # Required if "mysql user" is empty, default is empty. The root superuser password
-          mysql user: 'developer' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
-          mysql password: ${{ secrets.DatabasePassword }} # Required if "mysql user" exists. The password for the "mysql user"
-
-      - name: Run migrations
-        run: php artisan migrate
+      
       - name: Run tests
         run: ./vendor/bin/phpunit tests
