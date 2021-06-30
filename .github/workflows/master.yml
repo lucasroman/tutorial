@@ -25,8 +25,8 @@ jobs:
           DB_DATABASE: tutorial
           DB_USERNAME: root
           DB_PASSWORD:
-      - name: Install MySQL server
-        run: sudo apt-get install mysql-server
+      - name: MySQL rename file to connection
+        run: mv /etc/mysql/my.cnf /etc/mysql/otherName.cnf
       - name: MySQL login
         run: mysql -u -p
       #- name: Run migrations
