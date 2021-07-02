@@ -38,6 +38,9 @@ jobs:
       
       - name: Connect database
         run: mysql -uroot && create database tutorial && use tutorial
+      
+      - name: Start server
+        run: sudo mysql.server start
         
       - name: Run migrations
         run: php artisan migrate
