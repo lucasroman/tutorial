@@ -22,14 +22,14 @@ jobs:
           DB_DATABASE: tutorial
           DB_USERNAME: root
           DB_PASSWORD:
-      - name: MySQL check server version
+      - name: MySQL - Check server version
         run: mysql -V
       
-      - name: MySQL: load from community actions
+      - name: MySQL - Load from community actions
         uses: shogo82148/actions-setup-mysql@v1
         with:
           mysql-version: '8.0'
-      - name: MySQL: connect to server
+      - name: MySQL - Connect to server
         run: mysql -uroot -h127.0.0.1 -e 'SELECT version()'
 
       - name: Install Composer depencencies
