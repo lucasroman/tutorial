@@ -37,7 +37,7 @@ jobs:
           DB_PASSWORD:
       
       - name: Connect database
-        run: mysql -uroot -p && create database tutorial && use tutorial
+        run: mysql -uroot && create database tutorial && use tutorial
         
       - name: Run migrations
         run: php artisan migrate
