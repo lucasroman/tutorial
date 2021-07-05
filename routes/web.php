@@ -23,3 +23,7 @@ Route::resource('users', UserController::class)->only([
 ]);
 
 Route::view('/todo', 'todo/todoList')->name('todoList');
+
+Route::get('/dynamictext', function() {
+    return '<h3 style="font-family:arial"><span style="color:#00ff00">&#10003;</span> Url to dynamic text component is working! &#128077;</h3>';
+});
