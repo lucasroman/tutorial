@@ -31,17 +31,14 @@
                 </div>
             </a>
 
-            <a class="anchor-without-style" href="#">
+            <a class="anchor-without-style" href="{{ route('dynamicText') }}">
                 <div class="col d-flex align-items-start">
                     <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
                         @include('icons.welcome', ['icon' => 'react', ])
                     </div>
                     <div>
-                        <h2>Feature three</h2>
-                        <div class="text-center text-danger">
-                            <i class="far fa-construction fa-3x blink_me"></i>
-                            <p>Under construction</p>
-                        </div>
+                        <h2>Dynamic text</h2>
+                        <p>Diplay text while typing</p>
                     </div>
                 </div>
             </a>
