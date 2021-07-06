@@ -24,4 +24,4 @@ Route::resource('users', UserController::class)->only([
 
 Route::view('/todo', 'todo.todoList')->name('todoList');
 
-Route::view('/dynamictext', 'dynamictext.dynamicText');
+Route::view('/dynamictext', 'dynamictext.dynamicText')->name('dynamicText');
