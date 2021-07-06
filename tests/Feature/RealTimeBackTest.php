@@ -20,13 +20,21 @@ class RealTimeBackTest extends TestCase
         $response->assertStatus(200);
     }
 
-    // 1. Test url exist.
+    // Url to dynamic text component must exist
     public function testUrlToDynamicTextComponentMustExist()
     {
         $response = $this->get('/dynamictext');
 
         $response->assertStatus(200);
     }
-    // 2. Test wiew exist.
+
+    // View to dynamic text component must exist
+    public function testViewToDynamicTextComponentMustExist()
+    {
+        $response = $this->get('/dynamictext');
+
+        $response->assertViewIs('dynamictext.dynamicText');
+    }
+
     // 3. It can see the same text in another place.
 }
