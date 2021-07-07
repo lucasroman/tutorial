@@ -8,6 +8,8 @@ use Tests\TestCase;
 
 class TodoListBackTest extends TestCase
 {
+    use RefreshDatabase;
+    
     // Must exist todo list route and view
     public function testItCanSeeToDoListPage()
     {
