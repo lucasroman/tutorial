@@ -9,7 +9,7 @@ use Tests\DuskTestCase;
 class DynamicTextFrontTest extends DuskTestCase
 {
     use DatabaseMigrations;
-    
+
     /**
      * A Dusk test example.
      *
@@ -19,7 +19,15 @@ class DynamicTextFrontTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
-                    ->assertSee('Laravel');
+                    ->assertSee('React JS examples');
+        });
+    }
+
+    public function testShowSameTextThanInput()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/dynamictext')
+                    ->assertSee('Url');
         });
     }
 }
