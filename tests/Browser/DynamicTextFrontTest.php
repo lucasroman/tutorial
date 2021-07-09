@@ -27,7 +27,8 @@ class DynamicTextFrontTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/dynamictext')
-                    ->assertSee('Url');
+                    ->type('input-text', 'Hi!')
+                    ->assertSee('Hi!');
         });
     }
 }
