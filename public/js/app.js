@@ -1945,6 +1945,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var DynamicText = /*#__PURE__*/function (_React$Component) {
   _inherits(DynamicText, _React$Component);
 
@@ -1966,7 +1967,6 @@ var DynamicText = /*#__PURE__*/function (_React$Component) {
   _createClass(DynamicText, [{
     key: "handleChange",
     value: function handleChange(e) {
-      e.preventDefault();
       this.setState({
         text: e.target.value
       });
@@ -1974,11 +1974,13 @@ var DynamicText = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
           name: "input-text",
           onChange: this.handleChange
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+          children: ["Text written: ", this.state.text]
+        })]
       });
     }
   }]);
