@@ -9,14 +9,14 @@ class DynamicText extends React.Component {
     }
 
     handleChange(e) {
-        e.preventDefault();
         this.setState({ text: e.target.value });
     }
 
     render() {
         return (
             <div>
-                <input name="input-text" onChange={this.handleChange}/>
+                <input name="input-text" onChange={this.handleChange} />
+                <p>Text written: { this.state.text }</p>
             </div>
         );
     }
