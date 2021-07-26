@@ -8,20 +8,28 @@ class UserList extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                <table className="table table-dark table-responsive-sm">
-                    <tr>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Email</th>
-                    </tr>
+        let usersInDatabase = _.size(this.state.users);
 
-                    <UserData users={users} />
-                </table>
-            </div>
+        if (usersInDatabase > 0) {
+            return (
+                <div>
+                    <table className="table table-dark table-responsive-sm">
+                        <tr>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Email</th>
+                        </tr>
 
-        );
+                        <UserData users={users} />
+                    </table>
+                </div>
+
+            );
+        } else {
+            return(
+                <div>There are no users.</div>
+            );
+        }
     }
 }
 
@@ -30,6 +38,8 @@ class UserData extends React.Component {
         super(props);
         this.state = { users: JSON.parse(container.dataset.users) };
     }
+
+
     render() {
         return (
             <>
