@@ -8,6 +8,7 @@ class UserList extends React.Component {
     }
 
     render() {
+        // Get amount of users in database
         let usersInDatabase = _.size(this.state.users);
 
         if (usersInDatabase > 0) {
@@ -27,7 +28,15 @@ class UserList extends React.Component {
             );
         } else {
             return(
-                <div>There are no users.</div>
+                <div class="text-center">
+                    <h3>There are no users.</h3>
+                    <a href="/" class="btn btn-primary m-2">
+                        Back Home
+                    </a>
+                    <a href="/users/create" class="btn btn-primary">
+                        Create User
+                    </a>
+                </div>
             );
         }
     }
