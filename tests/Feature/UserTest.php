@@ -135,4 +135,19 @@ class UserTest extends TestCase
         $response->assertSee($users[1]->last_name);
         $response->assertSee($users[1]->email);
     }
+
+    // ------------------------------------------------------------------------
+    // User destroy test
+    // ------------------------------------------------------------------------
+
+    public function testItCanDeleteUsers()
+    {
+        // Create user to delete
+        $user = User::factory()->create();
+
+        $this->delete("/users/{$user->id}");
+        // Check user was deleted
+        $this->assertDeleted($user);
+
+    }
 }
