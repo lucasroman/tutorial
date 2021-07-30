@@ -19,7 +19,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::resource('users', UserController::class)->only([
-    'index', 'create', 'store'
+    'index', 'create', 'store', 'destroy'
 ]);
 
 Route::view('/todo', 'todo.todoList')->name('todoList');
