@@ -15,6 +15,7 @@ class UserList extends React.Component {
             return (
                 <div>
                     <table className="table table-dark table-responsive-sm">
+                        <caption>List of users in a React component</caption>
                         <tr>
                             <th scope="col">Last Name</th>
                             <th scope="col">First Name</th>
