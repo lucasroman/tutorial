@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -42,6 +43,14 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+
+        return redirect()->route('users.index');
+    }
+
+    public function destroyall()
+    {
+        // User::truncate();
+        DB::table('users')->delete();
 
         return redirect()->route('users.index');
     }
