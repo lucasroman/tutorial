@@ -150,4 +150,13 @@ class UserTest extends TestCase
         $this->assertDeleted($user);
 
     }
+
+    public function testEmptyDatabase()
+    {
+        $users = User::factory()->count(2)->create();
+
+        $this->delete("/users/destroyall");
+
+        $this->assertDatabaseCount('users', 0);
+    }
 }

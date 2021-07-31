@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::delete('/users/destroyall', [UserController::class, 'destroyall'])
+->name('users.destroyall');
+
 Route::resource('users', UserController::class)->only([
     'index', 'create', 'store', 'destroy'
 ]);
