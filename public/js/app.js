@@ -2330,7 +2330,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var UserList = /*#__PURE__*/function (_React$Component) {
   _inherits(UserList, _React$Component);
 
@@ -2352,89 +2351,20 @@ var UserList = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       // Get amount of users in database
-      var usersInDatabase = _.size(this.state.users);
+      var usersInDatabase = _.size(this.state.users); // If there are users will show a users table
+
 
       if (usersInDatabase > 0) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("table", {
-            className: "table table-dark table-responsive-sm rounded",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("caption", {
-              children: "List of users in a React component"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
-                scope: "col",
-                children: "Last Name"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
-                scope: "col",
-                children: "First Name"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
-                scope: "col",
-                children: "Email"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(UserData, {
-              users: users
-            })]
-          })
-        });
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(UserTable, {
+          users: users
+        }); // If there are not users will show a message and buttons
       } else {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          "class": "text-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-            children: "There are no users."
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-            href: "/",
-            "class": "btn btn-primary m-2",
-            children: "Back Home"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-            href: "/users/create",
-            "class": "btn btn-primary",
-            children: "Create User"
-          })]
-        });
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ThereAreNotUsers, {});
       }
     }
   }]);
 
   return UserList;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-var UserData = /*#__PURE__*/function (_React$Component2) {
-  _inherits(UserData, _React$Component2);
-
-  var _super2 = _createSuper(UserData);
-
-  function UserData(props) {
-    var _this2;
-
-    _classCallCheck(this, UserData);
-
-    _this2 = _super2.call(this, props);
-    _this2.state = {
-      users: JSON.parse(container.dataset.users)
-    };
-    return _this2;
-  }
-
-  _createClass(UserData, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-        children: this.state.users.map(function (user) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
-              children: user.last_name
-            }, Date.now()), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
-              children: user.first_name
-            }, Date.now()), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
-              children: user.email
-            }, Date.now())]
-          });
-        })
-      });
-    }
-  }]);
-
-  return UserData;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 var container = document.getElementById('userList');
@@ -2444,6 +2374,72 @@ if (container) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(UserList, {
     users: users
   }), container);
+} // -----------------------------------------------------------------------------
+// Users table: make the users table
+
+
+function UserTable(props) {
+  var users = JSON.parse(container.dataset.users);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("table", {
+    className: "table table-dark table-responsive-sm",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("caption", {
+      children: "List of users in a React component"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("thead", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
+          scope: "col",
+          children: "Last Name"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
+          scope: "col",
+          children: "First Name"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
+          scope: "col",
+          children: "Email"
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("tbody", {
+      children: users.map(function (user) {
+        return (
+          /*#__PURE__*/
+          // IMPORTANT: keys go here, in the array context
+          (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(UserRow, {
+            user: user
+          }, user.id)
+        );
+      })
+    })]
+  });
+} // User row table: return only one row of users table
+
+
+function UserRow(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+      children: props.user.last_name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+      children: props.user.first_name
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
+      children: props.user.email
+    })]
+  });
+} // When a section have not users you can show this component
+
+
+function ThereAreNotUsers() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    "class": "text-center",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      children: "There are no users."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+      href: "/",
+      "class": "btn btn-primary m-2",
+      children: "Back Home"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+      href: "/users/create",
+      "class": "btn btn-primary",
+      children: "Create User"
+    })]
+  });
 }
 
 /***/ }),
