@@ -23,7 +23,7 @@ class UserList extends React.Component {
 }
 
 var container = document.getElementById('userList');
-const users = container.dataset.users;
+const users = [];
 
 if (container) {
     ReactDOM.render(
@@ -76,12 +76,12 @@ function UserRow(props) {
 // When a section have not users you can show this component
 function ThereAreNotUsers() {
     return(
-        <div class="text-center">
+        <div className="text-center">
             <h3>There are no users.</h3>
-            <a href="/" class="btn btn-primary m-2">
+            <a href="/" className="btn btn-primary m-2">
                 Back Home
             </a>
-            <a href="/users/create" class="btn btn-primary">
+            <a href="/users/create" className="btn btn-primary">
                 Create User
             </a>
         </div>
