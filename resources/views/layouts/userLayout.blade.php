@@ -44,6 +44,6 @@
             </div>
         </footer>
 
-        <script src='{{ asset('js/app.js') }}' defer></script>
+        <script src="/js/app.js" defer></script>
     </body>
 </html>
