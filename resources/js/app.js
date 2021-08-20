@@ -12,8 +12,8 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// require('./components/Example');
-require('./components/DynamicText');
+require('./components/Example');
+require('./components/dynamicText');
 require('./components/todoList');
 require('./components/userForm');
 require('./components/userList');
